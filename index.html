@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Viumo — Stream The Extraordinary</title>
+  <!-- Google Fonts & Font Awesome (icons only, no JS frameworks) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 10% 20%, #050505, #000000);
+      background-color: #000000;
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    /* custom red accent & dark gradients */
+    :root {
+      --pure-black: #000000;
+      --deep-charcoal: #0a0a0a;
+      --viumo-red: #e50914;
+      --viumo-red-dark: #b20710;
+      --glass-white: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.08);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* typography premium */
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 70%, #e50914 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--viumo-red);
+      margin: 0.8rem auto 0;
+      border-radius: 3px;
+    }
+
+    /* buttons */
+    .btn-primary {
+      background: linear-gradient(95deg, #e50914 0%, #b20710 100%);
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 20px rgba(229, 9, 20, 0.35);
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary i {
+      font-size: 1.2rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(229, 9, 20, 0.5);
+      background: linear-gradient(95deg, #ff1a26, #d40c16);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(229, 9, 20, 0.7);
+      border-color: var(--viumo-red);
+    }
+
+    /* header logo */
+    .logo {
+      text-align: center;
+      padding: 28px 0 12px 0;
+    }
+    .logo-text {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(115deg, #ffffff, #e50914 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+      position: relative;
+    }
+    .logo-text span {
+      font-weight: 900;
+      background: none;
+      color: #e50914;
+      background-clip: unset;
+      -webkit-background-clip: unset;
+    }
+
+    /* hero */
+    .hero {
+      text-align: center;
+      padding: 2rem 0 3rem;
+    }
+    .hero-logo {
+      font-size: 4.8rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 1rem;
+    }
+    .tagline {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(125deg, #fff, #e0e0e0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .subtext {
+      font-size: 1.1rem;
+      color: #ccc;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      word-spacing: 8px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    /* screenshot gallery (horizontal scroll) */
+    .screenshots-section {
+      margin: 4rem 0 4rem;
+    }
+    .gallery-wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: thin;
+      padding: 12px 0 20px 0;
+      cursor: grab;
+      scroll-snap-type: x mandatory;
+    }
+    .gallery-wrapper::-webkit-scrollbar {
+      height: 6px;
+    }
+    .gallery-wrapper::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+    .gallery-wrapper::-webkit-scrollbar-thumb {
+      background: #e50914;
+      border-radius: 10px;
+    }
+    .gallery {
+      display: flex;
+      gap: 1.5rem;
+      padding-right: 16px;
+    }
+    .screenshot-card {
+      flex: 0 0 auto;
+      width: 210px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      scroll-snap-align: start;
+      border: 1px solid rgba(229, 9, 20, 0.3);
+    }
+    .screenshot-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 22px 38px -10px rgba(229, 9, 20, 0.4);
+    }
+    .screenshot-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      transition: all 0.3s;
+    }
+    .overlay-icon {
+      position: relative;
+    }
+    /* placeholder icons overlay on images won't break layout, each img has beautiful cinematic vibe */
+    
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0 2rem;
+    }
+    .feature-card {
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(6px);
+      border-radius: 28px;
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      border: 1px solid var(--card-border);
+      transition: all 0.25s;
+    }
+    .feature-card:hover {
+      border-color: #e5091470;
+      transform: translateY(-6px);
+      background: #0f0f0f;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #e50914;
+      margin-bottom: 1.2rem;
+    }
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .feature-card p {
+      color: #b3b3b3;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* about */
+    .about-card {
+      background: linear-gradient(145deg, #0c0c0c, #020202);
+      padding: 2.5rem;
+      border-radius: 40px;
+      margin: 2rem 0;
+      border: 1px solid #1f1f1f;
+      text-align: center;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #dbdbdb;
+      font-weight: 400;
+    }
+
+    /* download section */
+    .download-area {
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.12), transparent);
+      padding: 3rem 1rem;
+      border-radius: 60px;
+      margin: 2rem 0 1.5rem;
+    }
+    .btn-download-large {
+      background: linear-gradient(100deg, #e50914, #a00710);
+      font-size: 1.6rem;
+      font-weight: 800;
+      padding: 18px 48px;
+      border-radius: 70px;
+      box-shadow: 0 12px 28px rgba(229, 9, 20, 0.5);
+      letter-spacing: 1px;
+    }
+    .small-requirement {
+      display: block;
+      margin-top: 1.2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* footer */
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0 2.2rem;
+      border-top: 1px solid #1f1f1f;
+      text-align: center;
+    }
+    .footer-brand {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #888;
+      margin-bottom: 1.2rem;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: #ccc;
+      font-size: 1.7rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .social-icons a:hover {
+      color: #e50914;
+      transform: translateY(-4px);
+    }
+
+    /* responsiveness */
+    @media (max-width: 680px) {
+      .container {
+        padding: 0 18px;
+      }
+      .hero-logo {
+        font-size: 3rem;
+      }
+      .tagline {
+        font-size: 1.4rem;
+      }
+      .subtext {
+        font-size: 0.9rem;
+        word-spacing: 4px;
+      }
+      .btn-primary, .btn-secondary {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+      }
+      .btn-download-large {
+        font-size: 1.2rem;
+        padding: 14px 32px;
+      }
+      .screenshot-card {
+        width: 160px;
+      }
+      .feature-card h3 {
+        font-size: 1.2rem;
+      }
+      .about-card p {
+        font-size: 0.95rem;
+      }
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .screenshot-card {
+        width: 140px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn-secondary, .btn-primary {
+        width: 80%;
+        justify-content: center;
+      }
+    }
+
+    /* utility */
+    a {
+      text-decoration: none;
+    }
+    button {
+      background: none;
+      border: none;
+    }
+    .mb-2 {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-text">VIUMO<span>✦</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-logo">VIUMO</div>
+      <div class="tagline">Stream The Extraordinary</div>
+      <div class="subtext">Movies • TV Shows • Series • Anime</div>
+      <div class="hero-buttons">
+        <button class="btn-primary" id="downloadHeroBtn"><i class="fas fa-download"></i> Download APK</button>
+        <button class="btn-secondary" id="viewScreenshotsBtn"><i class="fas fa-images"></i> View Screenshots</button>
+      </div>
+    </section>
+
+    <!-- Screenshots Section (Horizontal Gallery) -->
+    <section id="screenshots" class="screenshots-section">
+      <div class="section-title">
+        <h2>App Previews</h2>
+      </div>
+      <div class="gallery-wrapper">
+        <div class="gallery" id="screenshotGallery">
+          <!-- 5 cinematic screenshot mockups with rich imagery + Viumo aesthetic -->
+          <div class="screenshot-card">
+            <img src="https://picsum.photos/id/104/400/700" alt="Viumo home screen" loading="lazy">
+          </div>
+          <div class="screenshot-card">
+            <img src="https://picsum.photos/id/20/400/700" alt="Movie detail interface" loading="lazy">
+          </div>
+          <div class="screenshot-card">
+            <img src="https://picsum.photos/id/26/400/700" alt="Series browsing" loading="lazy">
+          </div>
+          <div class="screenshot-card">
+            <img src="https://picsum.photos/id/155/400/700" alt="Player controls" loading="lazy">
+          </div>
+          <div class="screenshot-card">
+            <img src="https://picsum.photos/id/42/400/700" alt="Discover section" loading="lazy">
+          </div>
+          <div class="screenshot-card">
+            <img src="https://picsum.photos/id/169/400/700" alt="Trending movies" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="section-title">
+        <h2>Why Viumo?</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-film"></i></div>
+          <h3>Watch Latest Movies & Series</h3>
+          <p>Blockbusters, trending series, and timeless classics — always fresh.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-globe-africa"></i></div>
+          <h3>Nollywood & Global Content</h3>
+          <p>From Lagos to LA, discover curated stories from around the world.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Fast Streaming Experience</h3>
+          <p>Lightweight engine, adaptive quality, and zero buffering zones.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-palette"></i></div>
+          <h3>Simple, Beautiful Interface</h3>
+          <p>Intuitive design, dark elegance, and a seamless navigation flow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Viumo -->
+    <section id="about">
+      <div class="section-title">
+        <h2>About Viumo</h2>
+      </div>
+      <div class="about-card">
+        <p>Viumo is a lightweight Android streaming app built for speed, simplicity, and great content discovery. No bloat, just pure entertainment — from Nollywood epics to international series, anime marathons, and trending blockbusters. Engineered to deliver a premium streaming experience even on modest connections. Discover, play, and get lost in extraordinary stories.</p>
+      </div>
+    </section>
+
+    <!-- Download Section CTA -->
+    <section id="download">
+      <div class="download-area">
+        <button class="btn-primary btn-download-large" id="downloadMainBtn"><i class="fas fa-download"></i> Download Viumo APK</button>
+        <span class="small-requirement">Android 7.0+ required • Free • 24 MB</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-brand">A product of OMNIVUE</div>
+  <div class="social-icons">
+    <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="#" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+  </div>
+  <div style="margin-top: 1.5rem; font-size: 0.7rem; color: #444;">© 2025 Viumo — Stream limitless</div>
+</footer>
+
+<script>
+  (function() {
+    // Smooth scroll to screenshots when secondary button clicked
+    const viewScreenshotsBtn = document.getElementById('viewScreenshotsBtn');
+    const screenshotsSection = document.getElementById('screenshots');
+    
+    if (viewScreenshotsBtn && screenshotsSection) {
+      viewScreenshotsBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        screenshotsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+    
+    // Download APK button alerts (both hero and main download section)
+    const downloadHero = document.getElementById('downloadHeroBtn');
+    const downloadMain = document.getElementById('downloadMainBtn');
+    
+    function handleDownloadClick() {
+      // Simulate APK download trigger: For demo we show a nice toast/message
+      alert('📱 Viumo APK download will start soon.\nVersion 2.4.1 • Android 7.0+\n\nExperience ultimate streaming now.');
+      // You could replace with actual link, but requirement is just prominent button.
+      // Optionally could add dynamic behavior for 'Download APK' link placeholder.
+    }
+    
+    if (downloadHero) {
+      downloadHero.addEventListener('click', handleDownloadClick);
+    }
+    if (downloadMain) {
+      downloadMain.addEventListener('click', handleDownloadClick);
+    }
+    
+    // Additional: extra smooth touch for any anchor scroll (just in case)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    
+    // Horizontal gallery drag-to-scroll enhancement (optional UX)
+    const galleryWrapper = document.querySelector('.gallery-wrapper');
+    if (galleryWrapper) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      
+      galleryWrapper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        galleryWrapper.style.cursor = 'grabbing';
+        startX = e.pageX - galleryWrapper.offsetLeft;
+        scrollLeft = galleryWrapper.scrollLeft;
+      });
+      galleryWrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        galleryWrapper.style.cursor = 'grab';
+      });
+      galleryWrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        galleryWrapper.style.cursor = 'grab';
+      });
+      galleryWrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - galleryWrapper.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        galleryWrapper.scrollLeft = scrollLeft - walk;
+      });
+      galleryWrapper.style.cursor = 'grab';
+    }
+  })();
+</script>
+
+<!-- Since we use gradients and modern design, all placeholder images from picsum are cinematic representation. 
+     Additionally for extra smoothness, every section presents responsiveness and red-hot accents. -->
+</body>
+</html>
