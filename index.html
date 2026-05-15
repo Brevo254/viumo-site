@@ -536,10 +536,14 @@
     const downloadMain = document.getElementById('downloadMainBtn');
     
     function handleDownloadClick() {
-      // Simulate APK download trigger: For demo we show a nice toast/message
-      alert('📱 Viumo APK download will start soon.\nVersion 2.4.1 • Android 7.0+\n\nExperience ultimate streaming now.');
-      // You could replace with actual link, but requirement is just prominent button.
-      // Optionally could add dynamic behavior for 'Download APK' link placeholder.
+      const apkUrl = "https://pub-655df1fb02cc4bedbf3c5c50e396886c.r2.dev/app-release.apk";
+  
+      const a = document.createElement("a");
+      a.href = apkUrl;
+      a.download = "Viumo-1.0.5.apk";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
     
     if (downloadHero) {
