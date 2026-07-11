@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brevo254.github.io/viumo-site/sitemap.xml
