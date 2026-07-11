@@ -1,683 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Viumo — Stream The Extraordinary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    body {
-      background: radial-gradient(circle at 10% 20%, #050505, #000000);
-      background-color: #000000;
-      font-family: 'Inter', sans-serif;
-      color: #ffffff;
-      line-height: 1.4;
-      scroll-behavior: smooth;
-    }
+<title>Viumo — Stream Movies, Series & Anime | Download APK Free</title>
+<meta name="description" content="Viumo is a free lightweight Android app for streaming movies, TV shows, series, anime and Nollywood content. Download the Viumo APK, cast to your TV with Viumo Cast — fast, no bloat.">
+<meta name="keywords" content="Viumo, Viumo APK, Viumo Cast, online streaming app, Nollywood streaming, free movie app, Android streaming app, anime streaming app, anime">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://brevo254.github.io/viumo-site/">
 
-    :root {
-      --pure-black: #000000;
-      --deep-charcoal: #0a0a0a;
-      --viumo-red: #e50914;
-      --viumo-red-dark: #b20710;
-      --glass-white: rgba(255,255,255,0.05);
-      --card-border: rgba(255,255,255,0.08);
-    }
+<meta property="og:title" content="Viumo — Stream The Extraordinary">
+<meta property="og:description" content="Free Android app for movies, series, anime & Nollywood content. Cast to your TV with Viumo Cast.">
+<meta property="og:image" content="https://www.dropbox.com/scl/fi/tc9of6aeu45k729kc0q01/viumo_splash-1.png?rlkey=0j9mnaewzz3xzn8pn897mj17x&st=4wzu7c6i&dl=1">
+<meta property="og:url" content="https://brevo254.github.io/viumo-site/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Viumo",
+  "operatingSystem": "ANDROID",
+  "applicationCategory": "EntertainmentApplication",
+  "softwareVersion": "1.1.2",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Viumo is a lightweight Android streaming app for movies, TV shows, series, anime, and Nollywood content, with TV casting via Viumo Cast.",
+  "brand": { "@type": "Brand", "name": "OMNIVUE" }
+}
+</script>
 
-    h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #ffffff 70%, #e50914 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      display: inline-block;
-    }
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-    .section-title:after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 3px;
-      background: var(--viumo-red);
-      margin: 0.8rem auto 0;
-      border-radius: 3px;
-    }
+  :root{
+    --pure-black:#000000;
+    --deep-charcoal:#0a0a0a;
+    --panel:#111113;
+    --viumo-red:#e50914;
+    --viumo-red-dark:#b20710;
+    --cinema-gold:#f0b429;
+    --glass-white:rgba(255,255,255,0.055);
+    --glass-white-hover:rgba(255,255,255,0.09);
+    --card-border:rgba(255,255,255,0.09);
+    --text-dim:#9a9a9a;
+    --text-dimmer:#6f6f6f;
+  }
 
-    /* ── LOGO ANIMATION ── */
-    .logo {
-      text-align: center;
-      padding: 28px 0 12px 0;
-    }
+  html{ scroll-behavior:smooth; }
 
-    .logo-img-wrap {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(-18px) scale(0.88);
-      animation: logoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
-      position: relative;
-    }
+  body{
+    background:var(--pure-black);
+    font-family:'Inter',sans-serif;
+    color:#fff;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
 
-    /* glow ring that pulses once after reveal */
-    .logo-img-wrap::after {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(229,9,20,0.35) 0%, transparent 70%);
-      opacity: 0;
-      animation: logoPulse 1s ease-out 1.1s forwards;
-      pointer-events: none;
-    }
+  .display{ font-family:'Bebas Neue',sans-serif; letter-spacing:0.03em; }
 
-    .logo-img {
-      height: 54px;
-      width: auto;
-      display: block;
-      filter: drop-shadow(0 0 18px rgba(229,9,20,0.45));
-      transition: filter 0.3s ease, transform 0.3s ease;
-    }
+  .container{ max-width:1280px; margin:0 auto; padding:0 24px; }
 
-    .logo-img:hover {
-      filter: drop-shadow(0 0 28px rgba(229,9,20,0.75));
-      transform: scale(1.04);
-    }
+  a{ text-decoration:none; color:inherit; }
+  button{ background:none; border:none; font-family:inherit; cursor:pointer; }
+  img{ max-width:100%; display:block; }
 
-    @keyframes logoReveal {
-      0%   { opacity: 0; transform: translateY(-18px) scale(0.88); }
-      60%  { opacity: 1; transform: translateY(3px) scale(1.03); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
+  ::selection{ background:var(--viumo-red); color:#fff; }
 
-    @keyframes logoPulse {
-      0%   { opacity: 0.9; transform: scale(0.9); }
-      100% { opacity: 0;   transform: scale(1.6); }
-    }
+  /* ───────── NAV ───────── */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    padding:18px 0;
+    transition:background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(0,0,0,0.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom-color:var(--card-border);
+    padding:12px 0;
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .nav-brand{ display:flex; align-items:center; gap:10px; }
+  .nav-brand img{ height:30px; width:auto; filter:drop-shadow(0 0 10px rgba(229,9,20,0.5)); }
+  .nav-brand span{ font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:0.06em; }
+  .nav-links{ display:flex; gap:2.2rem; align-items:center; }
+  .nav-links a{
+    font-size:0.88rem; font-weight:600; color:var(--text-dim);
+    transition:color 0.2s ease; position:relative;
+  }
+  .nav-links a:hover{ color:#fff; }
+  .nav-cta{
+    background:var(--glass-white);
+    border:1px solid var(--card-border);
+    backdrop-filter:blur(6px);
+    padding:9px 20px;
+    border-radius:30px;
+    font-size:0.84rem; font-weight:700;
+    display:flex; align-items:center; gap:8px;
+    transition:all 0.25s ease;
+  }
+  .nav-cta:hover{ background:var(--viumo-red); border-color:var(--viumo-red); transform:translateY(-2px); }
+  @media (max-width:800px){ .nav-links{ display:none; } }
 
-    /* ── BUTTONS ── */
-    .btn-primary {
-      background: linear-gradient(95deg, #e50914 0%, #b20710 100%);
-      border: none;
-      color: white;
-      font-weight: 700;
-      padding: 14px 32px;
-      font-size: 1.1rem;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 8px 20px rgba(229,9,20,0.35);
-      font-family: inherit;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn-primary i { font-size: 1.2rem; }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(229,9,20,0.5);
-      background: linear-gradient(95deg, #ff1a26, #d40c16);
-    }
+  /* ───────── BUTTONS ───────── */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    font-weight:700; border-radius:40px; cursor:pointer;
+    transition:transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color .22s ease;
+    font-family:inherit; white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(95deg,#e50914 0%,#b20710 100%);
+    color:#fff; padding:15px 34px; font-size:1.05rem; border:none;
+    box-shadow:0 10px 26px rgba(229,9,20,0.38);
+  }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 16px 34px rgba(229,9,20,0.52); }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: white;
-      font-weight: 600;
-      padding: 12px 28px;
-      font-size: 1rem;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: inherit;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-secondary:hover {
-      background: rgba(229,9,20,0.7);
-      border-color: var(--viumo-red);
-    }
+  .btn-secondary{
+    background:var(--glass-white);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(240,180,41,0.35);
+    color:#fff; padding:14px 30px; font-size:1rem;
+    position:relative;
+  }
+  .btn-secondary:hover{ background:rgba(240,180,41,0.12); border-color:var(--cinema-gold); transform:translateY(-3px); }
+  .btn-secondary .soon-tag{
+    position:absolute; top:-10px; right:-8px;
+    background:var(--cinema-gold); color:#1a1200;
+    font-size:0.58rem; font-weight:800; padding:3px 8px;
+    border-radius:20px; letter-spacing:0.04em;
+  }
 
-    /* ── HERO ── */
-    .hero { text-align: center; padding: 2rem 0 3rem; }
-    .hero-logo {
-      font-size: 4.8rem;
-      font-weight: 900;
-      letter-spacing: -2px;
-      margin-bottom: 1rem;
-    }
-    .tagline {
-      font-size: 2rem;
-      font-weight: 800;
-      background: linear-gradient(125deg, #fff, #e0e0e0);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
-    .subtext {
-      font-size: 1.1rem;
-      color: #ccc;
-      letter-spacing: 1px;
-      margin-bottom: 2rem;
-      font-weight: 500;
-      word-spacing: 8px;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
+  /* ───────── HERO ───────── */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+    padding:120px 20px 60px;
+  }
 
-    /* ── VERSION BADGE ── */
-    .version-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(229,9,20,0.12);
-      border: 1px solid rgba(229,9,20,0.35);
-      color: #ff4d55;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.04em;
-    }
-    .version-badge .dot {
-      width: 6px; height: 6px;
-      background: #e50914;
-      border-radius: 50%;
-      animation: blink 1.6s ease-in-out infinite;
-    }
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50%      { opacity: 0.2; }
-    }
+  .poster-wall{
+    position:absolute; inset:0;
+    display:flex; gap:14px;
+    padding:0 6px;
+    opacity:0.55;
+  }
+  .poster-col{ flex:1; overflow:hidden; position:relative; }
+  .poster-track{ display:flex; flex-direction:column; gap:14px; }
+  .poster-col.up .poster-track{ animation:driftUp 42s linear infinite; }
+  .poster-col.down .poster-track{ animation:driftDown 48s linear infinite; }
+  .poster-col:nth-child(2) .poster-track{ animation-duration:55s; }
+  .poster-col:nth-child(3) .poster-track{ animation-duration:38s; }
+  @keyframes driftUp{ from{ transform:translateY(0); } to{ transform:translateY(-50%); } }
+  @keyframes driftDown{ from{ transform:translateY(-50%); } to{ transform:translateY(0); } }
 
-    /* ── SCREENSHOTS ── */
-    .screenshots-section { margin: 4rem 0; }
-    .gallery-wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      scrollbar-width: thin;
-      padding: 12px 0 20px 0;
-      cursor: grab;
-      scroll-snap-type: x mandatory;
-    }
-    .gallery-wrapper::-webkit-scrollbar { height: 6px; }
-    .gallery-wrapper::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
-    .gallery-wrapper::-webkit-scrollbar-thumb { background: #e50914; border-radius: 10px; }
-    .gallery { display: flex; gap: 1.5rem; padding-right: 16px; }
-    .screenshot-card {
-      flex: 0 0 auto;
-      width: 210px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #111;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.7);
-      transition: transform 0.2s ease, box-shadow 0.2s;
-      scroll-snap-align: start;
-      border: 1px solid rgba(229,9,20,0.3);
-    }
-    .screenshot-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 22px 38px -10px rgba(229,9,20,0.4);
-    }
-    .screenshot-card img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 9/16;
-      object-fit: cover;
-      transition: all 0.3s;
-    }
+  .mini-poster{
+    width:100%; aspect-ratio:2/3;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.06);
+    position:relative; overflow:hidden;
+    flex-shrink:0;
+  }
+  .mini-poster i{
+    position:absolute; bottom:10px; left:10px;
+    font-size:1rem; color:rgba(255,255,255,0.5);
+  }
 
-    /* ── FEATURES ── */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0 2rem;
-    }
-    .feature-card {
-      background: rgba(10,10,10,0.75);
-      backdrop-filter: blur(6px);
-      border-radius: 28px;
-      padding: 1.8rem 1.4rem;
-      text-align: center;
-      border: 1px solid var(--card-border);
-      transition: all 0.25s;
-    }
-    .feature-card:hover {
-      border-color: #e5091470;
-      transform: translateY(-6px);
-      background: #0f0f0f;
-    }
-    .feature-icon { font-size: 2.5rem; color: #e50914; margin-bottom: 1.2rem; }
-    .feature-card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
-    .feature-card p { color: #b3b3b3; font-weight: 500; font-size: 0.95rem; }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 40%, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.55) 55%, transparent 80%),
+      linear-gradient(180deg, #000 0%, rgba(0,0,0,0.35) 22%, rgba(0,0,0,0.35) 70%, #000 100%);
+  }
 
-    /* ── WHAT'S NEW SECTION ── */
-    .whats-new-section { margin: 4rem 0; }
-    .whats-new-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
-    .new-item {
-      background: rgba(229,9,20,0.06);
-      border: 1px solid rgba(229,9,20,0.18);
-      border-radius: 20px;
-      padding: 1.4rem 1.2rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      transition: all 0.2s;
-    }
-    .new-item:hover {
-      background: rgba(229,9,20,0.1);
-      border-color: rgba(229,9,20,0.4);
-      transform: translateY(-3px);
-    }
-    .new-item-icon {
-      font-size: 1.5rem;
-      color: #e50914;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .new-item-text strong {
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .new-item-text span {
-      font-size: 0.82rem;
-      color: #999;
-      line-height: 1.5;
-    }
-    .new-tag {
-      display: inline-block;
-      background: var(--viumo-red);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 6px;
-      letter-spacing: 0.06em;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
+  .hero-content{
+    position:relative; z-index:2;
+    text-align:center; max-width:720px;
+  }
 
-    /* ── ABOUT ── */
-    .about-card {
-      background: linear-gradient(145deg, #0c0c0c, #020202);
-      padding: 2.5rem;
-      border-radius: 40px;
-      margin: 2rem auto;
-      border: 1px solid #1f1f1f;
-      text-align: center;
-      max-width: 850px;
-    }
-    .about-card p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #dbdbdb;
-      font-weight: 400;
-    }
+  .version-badge{
+    display:inline-flex; align-items:center; gap:7px;
+    background:rgba(229,9,20,0.12); border:1px solid rgba(229,9,20,0.35);
+    color:#ff4d55; font-size:0.72rem; font-weight:700;
+    padding:5px 14px; border-radius:20px; margin-bottom:1.6rem;
+    letter-spacing:0.05em; text-transform:uppercase;
+  }
+  .version-badge .dot{ width:6px; height:6px; background:var(--viumo-red); border-radius:50%; animation:blink 1.6s ease-in-out infinite; }
+  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.2;} }
 
-    /* ── DOWNLOAD ── */
-    .download-area {
-      text-align: center;
-      background: radial-gradient(ellipse at 50% 0%, rgba(229,9,20,0.12), transparent);
-      padding: 3rem 1rem;
-      border-radius: 60px;
-      margin: 2rem 0 1.5rem;
-    }
-    .btn-download-large {
-      background: linear-gradient(100deg, #e50914, #a00710);
-      font-size: 1.6rem;
-      font-weight: 800;
-      padding: 18px 48px;
-      border-radius: 70px;
-      box-shadow: 0 12px 28px rgba(229,9,20,0.5);
-      letter-spacing: 1px;
-    }
-    .small-requirement {
-      display: block;
-      margin-top: 1.2rem;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
+  .hero-logo{
+    font-size:clamp(3.2rem,10vw,6rem);
+    line-height:0.95;
+    letter-spacing:0.02em;
+  }
+  .tagline{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(1.3rem,3.2vw,1.9rem);
+    letter-spacing:0.04em;
+    background:linear-gradient(120deg,#fff 60%,#e50914 130%);
+    background-clip:text; -webkit-background-clip:text; color:transparent;
+    margin:0.4rem 0 0.8rem;
+  }
+  .subtext{
+    font-size:0.98rem; color:var(--text-dim); font-weight:500;
+    letter-spacing:0.02em; margin-bottom:2.4rem;
+  }
+  .subtext .sep{ color:var(--viumo-red); margin:0 8px; }
 
-    /* ── TOAST ── */
-    .toast {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #1a1a1a;
-      border: 1px solid rgba(229,9,20,0.4);
-      color: #fff;
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      white-space: nowrap;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.6);
-      pointer-events: none;
-    }
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-    .toast i { color: #e50914; font-size: 1.1rem; }
+  .hero-buttons{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; }
 
-    /* ── FOOTER ── */
-    footer {
-      margin-top: 4rem;
-      padding: 2rem 0 2.2rem;
-      border-top: 1px solid #1f1f1f;
-      text-align: center;
-    }
-    .footer-brand { font-size: 1rem; font-weight: 500; color: #888; margin-bottom: 1.2rem; }
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .social-icons a {
-      color: #ccc;
-      font-size: 1.7rem;
-      transition: color 0.2s, transform 0.2s;
-      display: inline-block;
-    }
-    .social-icons a:hover { color: #e50914; transform: translateY(-4px); }
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    z-index:2; color:var(--text-dimmer); font-size:0.7rem;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    letter-spacing:0.15em; text-transform:uppercase;
+  }
+  .scroll-cue i{ animation:bounce 2s ease-in-out infinite; }
+  @keyframes bounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);} }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 680px) {
-      .container { padding: 0 18px; }
-      .hero-logo { font-size: 3rem; }
-      .tagline { font-size: 1.4rem; }
-      .subtext { font-size: 0.9rem; word-spacing: 4px; }
-      .btn-primary, .btn-secondary { padding: 10px 22px; font-size: 0.9rem; }
-      .btn-download-large { font-size: 1.2rem; padding: 14px 32px; }
-      .screenshot-card { width: 160px; }
-      .feature-card h3 { font-size: 1.2rem; }
-      .about-card p { font-size: 0.95rem; }
-      .section-title h2 { font-size: 1.8rem; }
-      .logo-img { height: 42px; }
-    }
-    @media (max-width: 480px) {
-      .screenshot-card { width: 140px; }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .btn-secondary, .btn-primary { width: 80%; justify-content: center; }
-      .toast { font-size: 0.78rem; padding: 12px 16px; white-space: normal; max-width: 88vw; text-align: center; }
-    }
+  /* ───────── SECTION SHELL ───────── */
+  section{ padding:5rem 0; position:relative; }
+  .eyebrow{
+    display:block; font-size:0.75rem; font-weight:700; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--viumo-red); margin-bottom:0.6rem;
+  }
+  .section-title{ text-align:center; margin-bottom:3rem; }
+  .section-title h2{
+    font-family:'Bebas Neue',sans-serif; font-weight:400;
+    font-size:clamp(2rem,4.5vw,3rem); letter-spacing:0.02em;
+  }
+  .section-title p{ color:var(--text-dim); margin-top:0.6rem; font-size:0.98rem; max-width:520px; margin-left:auto; margin-right:auto; }
 
-    a { text-decoration: none; }
-    button { background: none; border: none; }
-    .mb-2 { margin-bottom: 1rem; }
-  </style>
+  /* glass card base */
+  .glass{
+    background:var(--glass-white);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--card-border);
+    border-radius:26px;
+  }
+
+  /* ───────── MASONRY (screenshots + posters share the technique) ───────── */
+  .masonry{ column-count:4; column-gap:1.1rem; }
+  .masonry > *{ break-inside:avoid; margin-bottom:1.1rem; }
+  @media (max-width:1000px){ .masonry{ column-count:3; } }
+  @media (max-width:680px){ .masonry{ column-count:2; column-gap:0.7rem; } .masonry > *{ margin-bottom:0.7rem; } }
+
+  .shot-card{
+    border-radius:22px; overflow:hidden; position:relative;
+    border:1px solid var(--card-border);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .shot-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px -14px rgba(229,9,20,0.35); }
+  .shot-card img{ width:100%; }
+
+  /* ───────── POSTER (generative, genre showcase) ───────── */
+  .poster-card{
+    border-radius:18px; overflow:hidden; position:relative;
+    aspect-ratio:2/3;
+    border:1px solid var(--card-border);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  }
+  .poster-card:hover{ transform:translateY(-6px) scale(1.015); box-shadow:0 22px 42px -14px rgba(0,0,0,0.6); }
+  .poster-card .grain{ position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 55%); }
+  .poster-card .genre-chip{
+    position:absolute; top:10px; left:10px;
+    background:rgba(0,0,0,0.55); backdrop-filter:blur(4px);
+    font-size:0.62rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
+    padding:4px 9px; border-radius:20px; border:1px solid rgba(255,255,255,0.15);
+  }
+  .poster-card .rating-chip{
+    position:absolute; top:10px; right:10px;
+    background:rgba(0,0,0,0.55); backdrop-filter:blur(4px);
+    font-size:0.68rem; font-weight:700; color:var(--cinema-gold);
+    padding:4px 8px; border-radius:20px; border:1px solid rgba(255,255,255,0.15);
+    display:flex; align-items:center; gap:4px;
+  }
+  .poster-card .icon-mark{ position:absolute; top:44%; left:50%; transform:translate(-50%,-50%); font-size:2.1rem; color:rgba(255,255,255,0.18); }
+  .poster-card .poster-info{ position:relative; padding:14px 12px; background:linear-gradient(0deg, rgba(0,0,0,0.85), transparent); }
+  .poster-card .poster-info strong{ display:block; font-size:0.92rem; font-weight:800; }
+  .poster-card .poster-info span{ font-size:0.7rem; color:var(--text-dim); }
+
+  .poster-note{
+    text-align:center; color:var(--text-dimmer); font-size:0.78rem;
+    margin-top:1.6rem; font-style:italic;
+  }
+
+  /* ───────── CAST SPOTLIGHT ───────── */
+  .cast-section{
+    background:radial-gradient(ellipse 60% 80% at 50% 0%, rgba(240,180,41,0.08), transparent);
+  }
+  .cast-panel{
+    padding:3.2rem 2.4rem;
+    display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;
+  }
+  @media (max-width:820px){ .cast-panel{ grid-template-columns:1fr; text-align:center; } }
+  .cast-copy .eyebrow{ color:var(--cinema-gold); }
+  .cast-copy h2{ font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:1rem; }
+  .cast-copy p{ color:var(--text-dim); margin-bottom:1.6rem; line-height:1.7; }
+  .cast-visual{
+    aspect-ratio:16/10; border-radius:22px;
+    background:linear-gradient(135deg,#0d0d0f,#000);
+    border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .cast-visual::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 50%, rgba(240,180,41,0.16), transparent 65%);
+  }
+  .cast-visual i{ font-size:4.4rem; color:var(--cinema-gold); position:relative; z-index:1; }
+  .cast-visual .waves{ position:absolute; inset:0; z-index:0; }
+  .cast-visual .waves span{
+    position:absolute; top:50%; left:50%; border:1px solid rgba(240,180,41,0.35);
+    border-radius:50%; transform:translate(-50%,-50%);
+    animation:pulseWave 3s ease-out infinite;
+  }
+  .cast-visual .waves span:nth-child(1){ width:90px; height:90px; }
+  .cast-visual .waves span:nth-child(2){ width:90px; height:90px; animation-delay:1s; }
+  .cast-visual .waves span:nth-child(3){ width:90px; height:90px; animation-delay:2s; }
+  @keyframes pulseWave{ from{ width:90px; height:90px; opacity:0.9; } to{ width:340px; height:340px; opacity:0; } }
+
+  /* ───────── FEATURES ───────── */
+  .features-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.6rem; }
+  .feature-card{ padding:2rem 1.6rem; text-align:center; transition:all 0.25s ease; }
+  .feature-card:hover{ border-color:rgba(229,9,20,0.45); transform:translateY(-6px); background:var(--glass-white-hover); }
+  .feature-icon{ font-size:2.2rem; color:var(--viumo-red); margin-bottom:1.1rem; }
+  .feature-card h3{ font-size:1.2rem; margin-bottom:0.6rem; font-weight:700; }
+  .feature-card p{ color:var(--text-dim); font-size:0.92rem; }
+
+  /* ───────── HIGHLIGHTS (formerly "what's new") ───────── */
+  .highlights-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+  .highlight-item{ padding:1.3rem 1.2rem; display:flex; gap:12px; align-items:flex-start; transition:all 0.2s ease; }
+  .highlight-item:hover{ background:var(--glass-white-hover); border-color:rgba(229,9,20,0.3); }
+  .highlight-item i{ color:var(--viumo-red); font-size:1.3rem; margin-top:2px; flex-shrink:0; }
+  .highlight-item strong{ display:block; font-size:0.92rem; font-weight:700; margin-bottom:3px; }
+  .highlight-item span{ font-size:0.8rem; color:var(--text-dim); line-height:1.5; }
+
+  /* ───────── ABOUT ───────── */
+  .about-card{ padding:2.6rem; text-align:center; max-width:820px; margin:0 auto; }
+  .about-card p{ font-size:1.05rem; color:#dadada; line-height:1.75; }
+
+  /* ───────── FINAL DOWNLOAD ───────── */
+  .download-area{
+    text-align:center;
+    background:radial-gradient(ellipse at 50% 0%, rgba(229,9,20,0.14), transparent);
+    padding:3.4rem 1.5rem; border-radius:40px;
+  }
+  .download-area h2{ font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:1.6rem; }
+  .small-requirement{ display:block; margin-top:1.3rem; font-size:0.8rem; color:var(--text-dimmer); }
+
+  /* ───────── TOAST ───────── */
+  .toast{
+    position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:#141414; border:1px solid rgba(229,9,20,0.4); color:#fff;
+    padding:14px 22px; border-radius:14px; font-size:0.88rem; font-weight:500;
+    display:flex; align-items:center; gap:10px; z-index:9999; opacity:0;
+    transition:opacity 0.3s ease, transform 0.3s ease; white-space:nowrap;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6); pointer-events:none;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .toast i{ color:var(--viumo-red); font-size:1.05rem; }
+
+  /* ───────── FOOTER ───────── */
+  footer{ padding:3rem 0 2.4rem; border-top:1px solid var(--card-border); text-align:center; margin-top:2rem; }
+  .footer-brand{ color:var(--text-dimmer); font-size:0.92rem; margin-bottom:1.2rem; }
+  .social-icons{ display:flex; justify-content:center; gap:1.8rem; }
+  .social-icons a{ color:var(--text-dim); font-size:1.5rem; transition:color 0.2s, transform 0.2s; }
+  .social-icons a:hover{ color:var(--viumo-red); transform:translateY(-4px); }
+  .copyright{ margin-top:1.6rem; font-size:0.7rem; color:#3a3a3a; }
+
+  @media (max-width:680px){
+    .hero-buttons{ flex-direction:column; width:100%; }
+    .hero-buttons .btn{ width:100%; }
+    .container{ padding:0 18px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- Toast -->
-<div class="toast" id="toast">
-  <i class="fas fa-download"></i>
-  <span>Downloading Viumo 1.0.5 — Android 7.0+</span>
-</div>
+<div class="toast" id="toast"><i class="fas fa-download"></i><span id="toastText">Downloading Viumo APK</span></div>
 
-<header>
-  <div class="logo">
-    <div class="logo-img-wrap">
-      <img
-        class="logo-img"
-        src="https://www.dropbox.com/scl/fi/tc9of6aeu45k729kc0q01/viumo_splash-1.png?rlkey=0j9mnaewzz3xzn8pn897mj17x&st=4wzu7c6i&dl=1"
-        alt="Viumo"
-        onerror="this.closest('.logo-img-wrap').innerHTML='<div class=\'logo-text-fallback\'>VIUMO<span>✦</span></div>'"
-      >
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <div class="nav-brand">
+      <img src="https://www.dropbox.com/scl/fi/tc9of6aeu45k729kc0q01/viumo_splash-1.png?rlkey=0j9mnaewzz3xzn8pn897mj17x&st=4wzu7c6i&dl=1" alt="Viumo logo" onerror="this.style.display='none'">
+      <span class="display">VIUMO</span>
     </div>
+    <div class="nav-links">
+      <a href="#screenshots">Preview</a>
+      <a href="#genres">Genres</a>
+      <a href="#cast">Viumo Cast</a>
+      <a href="#features">Features</a>
+    </div>
+    <a href="#download" class="nav-cta"><i class="fas fa-download"></i> Download</a>
   </div>
-</header>
+</nav>
 
 <main>
-  <div class="container">
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="version-badge">
-        <span class="dot"></span> v1.0.5 — Latest Release
-      </div>
-      <div class="hero-logo">VIUMO</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="poster-wall" id="posterWall"></div>
+    <div class="hero-scrim"></div>
+
+    <div class="hero-content">
+      <div class="version-badge"><span class="dot"></span> v1.1.2 — Latest Release</div>
+      <div class="hero-logo display">VIUMO</div>
       <div class="tagline">Stream The Extraordinary</div>
-      <div class="subtext">Movies • TV Shows • Series • Anime</div>
+      <div class="subtext">MOVIES <span class="sep">•</span> TV SHOWS <span class="sep">•</span> SERIES <span class="sep">•</span> ANIME</div>
       <div class="hero-buttons">
-        <button class="btn-primary" id="downloadHeroBtn"><i class="fas fa-download"></i> Download APK</button>
-        <button class="btn-secondary" id="viewScreenshotsBtn"><i class="fas fa-images"></i> View Screenshots</button>
+        <button class="btn btn-primary" id="downloadHeroBtn"><i class="fas fa-download"></i> Download APK</button>
+        <button class="btn btn-secondary" id="castHeroBtn">
+          <i class="fas fa-tv"></i> Get Viumo Cast
+          <span class="soon-tag">Soon</span>
+        </button>
       </div>
-    </section>
+    </div>
 
-    <!-- Screenshots -->
-    <section id="screenshots" class="screenshots-section">
-      <div class="section-title"><h2>App Previews</h2></div>
-      <div class="gallery-wrapper">
-        <div class="gallery" id="screenshotGallery">
-          <div class="screenshot-card">
-            <img src="https://www.dropbox.com/scl/fi/i6bpbkwkvy33spicumul9/home.jpeg?rlkey=0pzcogzz8t86i8nfg6hxl2t3k&st=excx16p8&dl=1" alt="Viumo home screen" loading="lazy">
-          </div>
-          <div class="screenshot-card">
-            <img src="https://www.dropbox.com/scl/fi/xy9tu98inhgrmxt6r405m/details.jpeg?rlkey=7qnweq0w2aqhsop7eg8oxe2q9&e=1&st=uuo2slzg&dl=1" alt="Movie detail interface" loading="lazy">
-          </div>
-          <div class="screenshot-card">
-            <img src="https://www.dropbox.com/scl/fi/x9izbrz1gzc5otmqz8ba4/explore.jpeg?rlkey=lvhwwxv1gb81l18ou8qtzfpji&st=fmmmshze&dl=1" alt="Series browsing" loading="lazy">
-          </div>
-          <div class="screenshot-card">
-            <img src="https://www.dropbox.com/scl/fi/f3s9vt2xhp4mww202tsiv/player1.jpeg?rlkey=0r8km5y79ugczrmcnzfg6d3cn&st=x5899n4a&dl=1" alt="Player controls" loading="lazy">
-          </div>
-          <div class="screenshot-card">
-            <img src="https://www.dropbox.com/scl/fi/vuu7o1x9u8d9o4e5hgxue/splashScreen.jpeg?rlkey=40szxtwkmd1jb5qvnp3hfumll&st=oonfkccu&dl=1" alt="Splash screen" loading="lazy">
-          </div>
-          <div class="screenshot-card">
-            <img src="https://www.dropbox.com/scl/fi/ojg2r13yefryhmjsacw1h/profile.jpeg?rlkey=oaboaawlwqwjoqzfiw6mr9ukn&st=8bbn32v8&dl=1" alt="Profile section" loading="lazy">
-          </div>
-        </div>
+    <div class="scroll-cue"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="screenshots">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">See it in action</span>
+        <h2>Inside The App</h2>
       </div>
-    </section>
+      <div class="masonry" id="shotGallery">
+        <div class="shot-card"><img loading="lazy" src="https://www.dropbox.com/scl/fi/i6bpbkwkvy33spicumul9/home.jpeg?rlkey=0pzcogzz8t86i8nfg6hxl2t3k&st=excx16p8&dl=1" alt="Viumo home screen"></div>
+        <div class="shot-card"><img loading="lazy" src="https://www.dropbox.com/scl/fi/xy9tu98inhgrmxt6r405m/details.jpeg?rlkey=7qnweq0w2aqhsop7eg8oxe2q9&e=1&st=uuo2slzg&dl=1" alt="Movie detail interface"></div>
+        <div class="shot-card"><img loading="lazy" src="https://www.dropbox.com/scl/fi/x9izbrz1gzc5otmqz8ba4/explore.jpeg?rlkey=lvhwwxv1gb81l18ou8qtzfpji&st=fmmmshze&dl=1" alt="Series browsing"></div>
+        <div class="shot-card"><img loading="lazy" src="https://www.dropbox.com/scl/fi/f3s9vt2xhp4mww202tsiv/player1.jpeg?rlkey=0r8km5y79ugczrmcnzfg6d3cn&st=x5899n4a&dl=1" alt="Player controls"></div>
+        <div class="shot-card"><img loading="lazy" src="https://www.dropbox.com/scl/fi/vuu7o1x9u8d9o4e5hgxue/splashScreen.jpeg?rlkey=40szxtwkmd1jb5qvnp3hfumll&st=oonfkccu&dl=1" alt="Splash screen"></div>
+        <div class="shot-card"><img loading="lazy" src="https://www.dropbox.com/scl/fi/ojg2r13yefryhmjsacw1h/profile.jpeg?rlkey=oaboaawlwqwjoqzfiw6mr9ukn&st=8bbn32v8&dl=1" alt="Profile section"></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- What's New in 1.0.5 -->
-    <section class="whats-new-section">
-      <div class="section-title"><h2>What's New in 1.0.5</h2></div>
-      <div class="whats-new-grid">
-        <div class="new-item">
-          <div class="new-item-icon"><i class="fas fa-history"></i></div>
-          <div class="new-item-text">
-            <strong>Continue Watching <span class="new-tag">NEW</span></strong>
-            <span>Pick up right where you left off — no searching needed.</span>
-          </div>
+  <!-- GENRE / POSTER SHOWCASE -->
+  <section id="genres">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Something for everyone</span>
+        <h2>Every Genre, One App</h2>
+        <p>From Nollywood epics to anime marathons — Viumo's catalog spans it all.</p>
+      </div>
+      <div class="masonry" id="posterGrid"></div>
+      <p class="poster-note">Poster art shown here is illustrative — swap in real in-app artwork any time.</p>
+    </div>
+  </section>
+
+  <!-- VIUMO CAST -->
+  <section id="cast" class="cast-section">
+    <div class="container">
+      <div class="glass cast-panel">
+        <div class="cast-copy">
+          <span class="eyebrow">Coming soon</span>
+          <h2 class="display">Now Playing, On Your TV</h2>
+          <p>Viumo Cast turns your phone into a remote. Pick a movie in Viumo, send it to the big screen, and keep control of playback right from your hand — no cables, no extra app store.</p>
+          <button class="btn btn-secondary" id="castMainBtn">
+            <i class="fas fa-bell"></i> Notify Me At Launch
+            <span class="soon-tag">Soon</span>
+          </button>
         </div>
-        <div class="new-item">
-          <div class="new-item-icon"><i class="fas fa-closed-captioning"></i></div>
-          <div class="new-item-text">
-            <strong>Subtitles <span class="new-tag">NEW</span></strong>
-            <span>Subtitles now available for all online viewers.</span>
-          </div>
-        </div>
-        <div class="new-item">
-          <div class="new-item-icon"><i class="fas fa-expand"></i></div>
-          <div class="new-item-text">
-            <strong>Immersive Mode <span class="new-tag">NEW</span></strong>
-            <span>Full-focus watch mode with zero distractions.</span>
-          </div>
-        </div>
-        <div class="new-item">
-          <div class="new-item-icon"><i class="fas fa-clone"></i></div>
-          <div class="new-item-text">
-            <strong>Stable PiP</strong>
-            <span>Picture-in-picture is smoother than ever for multitasking.</span>
-          </div>
-        </div>
-        <div class="new-item">
-          <div class="new-item-icon"><i class="fas fa-life-ring"></i></div>
-          <div class="new-item-text">
-            <strong>Help Center</strong>
-            <span>Bug reports and help — directly from your profile.</span>
-          </div>
+        <div class="cast-visual">
+          <div class="waves"><span></span><span></span><span></span></div>
+          <i class="fas fa-tv"></i>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features -->
-    <section id="features">
-      <div class="section-title"><h2>Why Viumo?</h2></div>
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Why Viumo</span>
+        <h2>Built To Just Work</h2>
+      </div>
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="glass feature-card">
           <div class="feature-icon"><i class="fas fa-film"></i></div>
-          <h3>Watch Latest Movies & Series</h3>
+          <h3>Latest Movies & Series</h3>
           <p>Blockbusters, trending series, and timeless classics — always fresh.</p>
         </div>
-        <div class="feature-card">
+        <div class="glass feature-card">
           <div class="feature-icon"><i class="fas fa-globe-africa"></i></div>
           <h3>Nollywood & Global Content</h3>
           <p>From Lagos to LA, discover curated stories from around the world.</p>
         </div>
-        <div class="feature-card">
+        <div class="glass feature-card">
           <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-          <h3>Fast Streaming Experience</h3>
+          <h3>Fast Streaming</h3>
           <p>Lightweight engine, adaptive quality, and zero buffering zones.</p>
         </div>
-        <div class="feature-card">
+        <div class="glass feature-card">
           <div class="feature-icon"><i class="fas fa-palette"></i></div>
           <h3>Simple, Beautiful Interface</h3>
           <p>Intuitive design, dark elegance, and a seamless navigation flow.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about">
+  <!-- HIGHLIGHTS -->
+  <section id="highlights">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Everything included</span>
+        <h2>Everything Viumo Gives You</h2>
+      </div>
+      <div class="highlights-grid">
+        <div class="glass highlight-item">
+          <i class="fas fa-history"></i>
+          <div><strong>Continue Watching</strong><span>Pick up right where you left off — no searching needed.</span></div>
+        </div>
+        <div class="glass highlight-item">
+          <i class="fas fa-closed-captioning"></i>
+          <div><strong>Subtitles</strong><span>Subtitles available for all online viewers.</span></div>
+        </div>
+        <div class="glass highlight-item">
+          <i class="fas fa-expand"></i>
+          <div><strong>Immersive Mode</strong><span>Full-focus watch mode with zero distractions.</span></div>
+        </div>
+        <div class="glass highlight-item">
+          <i class="fas fa-clone"></i>
+          <div><strong>Picture-in-Picture</strong><span>Smooth multitasking while your show keeps playing.</span></div>
+        </div>
+        <div class="glass highlight-item">
+          <i class="fas fa-life-ring"></i>
+          <div><strong>Help Center</strong><span>Bug reports and help — directly from your profile.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
       <div class="section-title"><h2>About Viumo</h2></div>
-      <div class="about-card">
-        <p>Viumo is a lightweight Android streaming app built for speed, simplicity, and great content discovery. No bloat, just pure entertainment — from Nollywood epics to international series, anime marathons, and trending blockbusters. Engineered to deliver a premium streaming experience even on modest connections. Discover, play, and get lost in extraordinary stories.</p>
+      <div class="glass about-card">
+        <p>Viumo is a lightweight Android streaming app built for speed, simplicity, and great content discovery. No bloat, just pure entertainment — from Nollywood epics to international series, anime marathons, and trending blockbusters. Engineered to deliver a premium streaming experience even on modest connections.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Download CTA -->
-    <section id="download">
+  <!-- FINAL DOWNLOAD -->
+  <section id="download">
+    <div class="container">
       <div class="download-area">
-        <button class="btn-primary btn-download-large" id="downloadMainBtn"><i class="fas fa-download"></i> Download Viumo APK</button>
-        <span class="small-requirement">Android 7.0+ required • Free • v1.0.5</span>
+        <h2 class="display">Get The Full Experience</h2>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" id="downloadMainBtn"><i class="fas fa-download"></i> Download Viumo APK</button>
+          <button class="btn btn-secondary" id="castFooterBtn">
+            <i class="fas fa-tv"></i> Get Viumo Cast
+            <span class="soon-tag">Soon</span>
+          </button>
+        </div>
+        <span class="small-requirement">Android 7.0+ required • Free • v1.1.2</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
 </main>
 
 <footer>
-  <div class="footer-brand">A product of OMNIVUE</div>
-  <div class="social-icons">
-    <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="#" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="#" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+  <div class="container">
+    <div class="footer-brand">A product of OMNIVUE</div>
+    <div class="social-icons">
+      <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="copyright">© 2026 Viumo — Stream limitless</div>
   </div>
-  <div style="margin-top:1.5rem;font-size:0.7rem;color:#444;">© 2025 Viumo — Stream limitless</div>
 </footer>
 
 <script>
-(function() {
+(function(){
 
-  /* ── Toast ── */
-  function showToast() {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3200);
+  /* ── poster data (generative — swap gradient/icon for a real image url later) ── */
+  const posters = [
+    {t:"Nairobi Nights",   g:"Nollywood",    icon:"fa-city",          c1:"#3a0a0a", c2:"#0a0a0a", rating:"4.7"},
+    {t:"Neon Ronin",       g:"Anime",        icon:"fa-bolt",          c1:"#2b0a3d", c2:"#0a0a0a", rating:"4.9"},
+    {t:"The Silent Hour",  g:"Thriller",     icon:"fa-user-secret",   c1:"#0a1a2e", c2:"#0a0a0a", rating:"4.6"},
+    {t:"Echoes of Titan",  g:"Sci-Fi",       icon:"fa-satellite-dish",c1:"#0a1a2e", c2:"#000000", rating:"4.8"},
+    {t:"Where Rivers Meet",g:"Drama",        icon:"fa-water",         c1:"#0a2e1f", c2:"#0a0a0a", rating:"4.5"},
+    {t:"Crimson Protocol", g:"Action",       icon:"fa-fire",          c1:"#3a0a0a", c2:"#000000", rating:"4.7"},
+    {t:"Two Seasons",      g:"Romance",      icon:"fa-heart",         c1:"#3d0a20", c2:"#0a0a0a", rating:"4.4"},
+    {t:"Wild Kilimanjaro", g:"Documentary",  icon:"fa-mountain-sun",  c1:"#3d2a0a", c2:"#0a0a0a", rating:"4.9"},
+    {t:"Ashfall Academy",  g:"Anime",        icon:"fa-dragon",        c1:"#2b0a3d", c2:"#000000", rating:"4.8"},
+    {t:"City of Gold",     g:"Nollywood",    icon:"fa-coins",         c1:"#3d2a0a", c2:"#0a0a0a", rating:"4.6"},
+    {t:"Glass Kingdom",    g:"Drama",        icon:"fa-chess-king",    c1:"#0a2e1f", c2:"#000000", rating:"4.5"},
+    {t:"Last Transmission",g:"Sci-Fi",       icon:"fa-satellite",     c1:"#0a1a2e", c2:"#0a0a0a", rating:"4.7"}
+  ];
+
+  function posterCardHTML(p){
+    return `<div class="poster-card" style="background:linear-gradient(150deg, ${p.c1}, ${p.c2})">
+      <div class="grain"></div>
+      <span class="genre-chip">${p.g}</span>
+      <span class="rating-chip"><i class="fas fa-star"></i> ${p.rating}</span>
+      <i class="fas ${p.icon} icon-mark"></i>
+      <div class="poster-info"><strong>${p.t}</strong><span>${p.g}</span></div>
+    </div>`;
   }
 
-  /* ── Download ── */
-  function handleDownloadClick() {
-    const apkUrl = "https://pub-655df1fb02cc4bedbf3c5c50e396886c.r2.dev/app-release.apk";
-    showToast();
-    const a = document.createElement("a");
-    a.href = apkUrl;
-    a.download = "Viumo-1.0.5.apk";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+  const grid = document.getElementById('posterGrid');
+  if(grid){ grid.innerHTML = posters.map(posterCardHTML).join(''); }
+
+  /* ── hero poster wall (ambient, duplicated for seamless vertical loop) ── */
+  const wall = document.getElementById('posterWall');
+  if(wall){
+    const cols = 5;
+    const dirs = ['up','down','up','down','up'];
+    let html = '';
+    for(let c=0;c<cols;c++){
+      const set = [...posters].sort(()=>Math.random()-0.5).slice(0,6);
+      const doubled = set.concat(set);
+      const items = doubled.map(p=>`<div class="mini-poster" style="background:linear-gradient(150deg, ${p.c1}, ${p.c2})"><i class="fas ${p.icon}"></i></div>`).join('');
+      html += `<div class="poster-col ${dirs[c]}"><div class="poster-track">${items}</div></div>`;
+    }
+    wall.innerHTML = html;
   }
 
-  /* ── Button bindings ── */
-  const downloadHero = document.getElementById('downloadHeroBtn');
-  const downloadMain = document.getElementById('downloadMainBtn');
-  if (downloadHero) downloadHero.addEventListener('click', handleDownloadClick);
-  if (downloadMain) downloadMain.addEventListener('click', handleDownloadClick);
-
-  /* ── View screenshots smooth scroll ── */
-  const viewScreenshotsBtn = document.getElementById('viewScreenshotsBtn');
-  const screenshotsSection = document.getElementById('screenshots');
-  if (viewScreenshotsBtn && screenshotsSection) {
-    viewScreenshotsBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      screenshotsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  /* ── Anchor smooth scroll ── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElem = document.querySelector(targetId);
-      if (targetElem) {
-        e.preventDefault();
-        targetElem.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+  /* ── nav solidify on scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
   });
 
-  /* ── Gallery drag scroll ── */
-  const galleryWrapper = document.querySelector('.gallery-wrapper');
-  if (galleryWrapper) {
-    let isDown = false, startX, scrollLeft;
-    galleryWrapper.addEventListener('mousedown', (e) => {
-      isDown = true;
-      galleryWrapper.style.cursor = 'grabbing';
-      startX = e.pageX - galleryWrapper.offsetLeft;
-      scrollLeft = galleryWrapper.scrollLeft;
-    });
-    galleryWrapper.addEventListener('mouseleave', () => { isDown = false; galleryWrapper.style.cursor = 'grab'; });
-    galleryWrapper.addEventListener('mouseup', () => { isDown = false; galleryWrapper.style.cursor = 'grab'; });
-    galleryWrapper.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - galleryWrapper.offsetLeft;
-      galleryWrapper.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    });
-    galleryWrapper.style.cursor = 'grab';
+  /* ── toast ── */
+  function showToast(msg){
+    const toast = document.getElementById('toast');
+    document.getElementById('toastText').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 3200);
   }
+
+  /* ── APK download ── */
+  function handleDownloadClick(){
+    const apkUrl = "https://pub-655df1fb02cc4bedbf3c5c50e396886c.r2.dev/app-release.apk";
+    showToast("Downloading Viumo APK");
+    const a = document.createElement("a");
+    a.href = apkUrl; a.download = "Viumo-1.1.2.apk";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
+
+  /* ── Viumo Cast (not released yet) ── */
+  function handleCastClick(){
+    showToast("Viumo Cast is coming soon — stay tuned!");
+  }
+
+  [ 'downloadHeroBtn','downloadMainBtn' ].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('click', handleDownloadClick);
+  });
+  [ 'castHeroBtn','castMainBtn','castFooterBtn' ].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('click', handleCastClick);
+  });
+
+  /* ── smooth anchor scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+    anchor.addEventListener('click', function(e){
+      const id = this.getAttribute('href');
+      if(id === '#') return;
+      const target = document.querySelector(id);
+      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+    });
+  });
 
 })();
 </script>
